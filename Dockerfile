@@ -34,12 +34,13 @@ RUN set -x; \
     java_semver=1.8.0_191; \
     java_url_hash=2787e4a523244c269598db4e85c51e0c; \
     java_hash=8d6ead9209fd2590f3a8778abbbea6a6b68e02b8a96500e2e77eabdbcaaebcae; \
+    java_url="http://download.oracle.com/otn-pub/java/jdk/${java_version}-b${java_bnumber}/${java_url_hash}/server-jre-${java_version}-linux-x64.tar.gz"; \
+    #java_url="http://ds5876.dreamservers.com:8000/server-jre-${java_version}-linux-x64.tar.gz"; \
 
 # Download Oracle Java, verify the hash, and install \
     cd / \
-#    && wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
-#    http://download.oracle.com/otn-pub/java/jdk/${java_version}-b${java_bnumber}/${java_url_hash}/server-jre-${java_version}-linux-x64.tar.gz \
-    && wget http://www.luochunhui.com/server-jre-8u191-linux-x64.tar.gz \
+    && wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
+       ${java_url} \
     && echo "${java_hash}  server-jre-${java_version}-linux-x64.tar.gz" | sha256sum -c - \
     && tar -zxvf server-jre-${java_version}-linux-x64.tar.gz -C /opt \
     && rm server-jre-${java_version}-linux-x64.tar.gz \
