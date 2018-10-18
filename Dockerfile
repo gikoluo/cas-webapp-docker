@@ -36,7 +36,6 @@ RUN set -x; \
     java_hash=8d6ead9209fd2590f3a8778abbbea6a6b68e02b8a96500e2e77eabdbcaaebcae; \
     java_url="http://download.oracle.com/otn-pub/java/jdk/${java_version}-b${java_bnumber}/${java_url_hash}/server-jre-${java_version}-linux-x64.tar.gz"; \
     #java_url="http://ds5876.dreamservers.com:8000/server-jre-${java_version}-linux-x64.tar.gz"; \
-
 # Download Oracle Java, verify the hash, and install \
     cd / \
     && wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
@@ -48,7 +47,7 @@ RUN set -x; \
 
 # Download the CAS overlay project \
 RUN cd / \
-    && git clone --depth 1 --branch 5.3 --single-branch https://github.com/apereo/cas-overlay-template.git cas-overlay \
+    && git clone --depth 1 --branch 5.3 --single-branch https://github.com/gikoluo/cas-overlay-template.git cas-overlay \
     && mkdir -p /etc/cas \
     && mkdir -p cas-overlay/bin;
 
